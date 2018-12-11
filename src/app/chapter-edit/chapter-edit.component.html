@@ -1,0 +1,25 @@
+<div class="col-md-11 col-sm-12">
+
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" [(ngModel)]="chapter.title" id="title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <!-- <textarea class="form-control" [(ngModel)]="chapter.content" id="content" name="content">
+              </textarea> -->
+      <textarea [froalaEditor]="options" [(froalaModel)]="chapter.content">Editor</textarea>
+    </div>
+    <input type="submit" class="btn btn-primary form-control mt-2" value="Create" />
+  </form>
+</div>
+
+<div class="col-12 mt-3">
+  <div class="col card-footer">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a type="button" class="btn btn-outline-secondary" routerLink="/books/{{book_id}}">Back </a>
+      <a type="button" class="btn btn-outline-danger" routerLink="delete(chapter._id)">Delete</a>
+    </div>
+  </div>
+</div>

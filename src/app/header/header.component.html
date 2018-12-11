@@ -1,0 +1,51 @@
+<div id="header">
+  <nav class="navbar navbar-expand-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">N</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books">Books</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books_new">Publish</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">About us</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <form class="form-inline ml-auto">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </li>
+        <!-- <li *ngIf="user" class="nav-item">
+          <img [src]="user.photoURL">
+          <a href="">
+            {{user.displayName}}
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a *ngIf="user" class="nav-link" (click)="logOut()">
+            Log out
+            <i class="fa fa-lg fa-sign-out"></i> </a>
+          <a *ngIf="!user" class="nav-link" routerLink="/login">Login
+            <i class="fa fa-lg fa-sign-in"></i></a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+</div>

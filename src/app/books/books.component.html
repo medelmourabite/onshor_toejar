@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor='let book of books' class="col-md-3 col-sm-4 p-2">
+      <div class="card  bg-light" style="">
+        <div class="card-header"><a routerLink="/books/{{book._id}}" class="card-title">{{ book.title }}</a></div>
+        <div class="p-2">
+          <img class="card-img-top image-cover" style="width: 100%" src="{{  book.cover }}" alt="Card image cap">
+        </div>
+        <div class="card-body pt-1 pr-1 pl-1" style="width: 800px">
+          <a routerLink="/books/{{book._id}}" class="card-title">{{ book.title }}</a>
+          <p class="card-text"><strong>{{ book.author }}</strong></p>
+          <!-- <p class="card-text">{{ book.summary }}</p>
+          <div class="btn-group">
+            <a class="btn btn-primary" href="">
+              <i class="fa fa-book"></i>
+            </a>
+            <a class="btn btn-danger" href="">
+              <i class="fa fa-heart"></i>
+            </a>
+          </div> -->
+        </div>
+        <div class="card-footer ">
+          <small class="text-muted">
+            <i class="fa fa-calendar"></i>{{ book.createdAt }}
+          </small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

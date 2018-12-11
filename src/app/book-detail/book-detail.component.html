@@ -1,0 +1,83 @@
+<div class="container-fleid p-4" *ngIf="book">
+  <div class="row card-deck mr-1 ml-1">
+    <div class="card col-sm-4 p-2 border-dark mr-0">
+      <img class="thumbnail w-100 image-cover" src="{{ book.cover }}" alt="">
+    </div>
+    <div class="card col-sm-8 justify-content-start pt-2 pb-2 border-dark ml-1">
+      <h5>
+        {{ book.title }}
+      </h5>
+      <p><strong>Summary: </strong>{{ book.summary }}</p>
+      <p><strong>Updated: </strong>{{ book.createdAt }}</p>
+      <div class="btn-group ">
+
+        <a class="btn btn-outline-primary" routerLink="/books/{{book._id}}/edit">
+          <i class="fa fa-edit"></i> Edit
+        </a>
+        <a class="btn btn-outline-danger" routerLink="/books/{{book._id}}/edit">
+          <i class="fa fa-eraser"></i> Delete
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix">
+    <hr>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <table class="table table-bordered table-hover ">
+        <thead class="w-100">
+          <tr>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Last update</th>
+            <th>#</th>
+          </tr>
+        </thead>
+
+        <tbody class="w-100">
+          <tr *ngFor='let chapter of chapters'>
+            <td>{{ chapter.number }}</td>
+            <td>{{ chapter.title }}</td>
+            <td>{{ chapter.updatedAt}}</td>
+            <td>
+              <div class="btn-group">
+                <a routerLink="/chapters/{{chapter._id}}" class=" btn  btn-outline-info">
+                  <i class="fa fa-lg fa-info"></i>
+                </a>
+
+                <a routerLink="/chapters/{{chapter._id}}/edit" class=" btn  btn-outline-primary">
+                  <i class="fa fa-lg fa-edit"></i>
+                </a>
+                <a class=" btn  btn-outline-danger" (click)="deleteChapter(chapter._id)">
+                  <i class="fa fa-lg fa-eraser"></i>
+                </a>
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <a routerLink="/chapters_new/{{book._id}}" class=" btn btn-outline-success">
+        <i class="fa fa-lg fa-plus-square-o"></i> New
+      </a>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col card-footer">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a type="button" class="btn btn-secondary" routerLink="/books">Back
+        </a>
+        <a type="button" class="btn btn-success" routerLink="/books/{{book._id}}/edit"> Edit
+        </a>
+        <a type="button" class="btn btn-danger" (click)="deleteBook(id)">Delete</a>
+      </div>
+    </div>
+  </div>
+
+</div>
